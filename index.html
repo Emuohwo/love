@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Love Calculator</title>
+</head>
+<body>
+	<div class="container">
+		<h1>Love Calculator</h1>
+
+		<p class="danger"><strong>Caution:</strong>This calculator is designed primarily for you to catch fun and should be treated at such. These results are not reliable.</p>
+
+		<h4 class="result"></h4>
+
+		<form id="loveform">
+			<ul>
+				<li>
+					<input type="text" name="firstInput" class="firstInput" placeholder="First Peron">
+					<span class="danger firstErr"></span>
+				</li>
+				<li>
+					<input type="text" name="secondInput" class="secondInput" placeholder="Second Person">
+					<span class="danger secondErr"></span>
+				</li>
+				<li>
+					<button type="submit">Test</button>
+				</li>
+			</ul>
+		</form>
+		Courtesy <a href="wwww.eloshines">ELOSHINES</a>.
+	</div>
+
+	<script type="text/javascript">
+		const loveform = document.querySelector('#loveform');
+		const result = document.querySelector('.result');
+		const firstInput = document.querySelector('.firstInput').value;
+		const secondInput = document.querySelector('.secondInput').value;
+
+		// const firstErr = document.querySelector('.firstErr');
+		// const secondErr = document.querySelector('.secondErr');
+
+		
+
+		function random(){
+			let randomNumber = Math.random() * 150;
+			let randomValue = Math.floor(randomNumber) + 1;
+			return randomValue;
+		}
+
+		loveform.addEventListener('submit', function(e){
+			e.preventDefault();
+						let test = `${firstInput} ${random()}  ${secondInput}`;
+			console.log(test)
+			result.innerHTML = test;
+		})
+
+	</script>
+</body>
+</html>
