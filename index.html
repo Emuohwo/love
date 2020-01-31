@@ -1,11 +1,91 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="UTF-8">
+	<meta name="Love Calculator" decription="Have fun with love calculator">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Love Calculator</title>
+	<style type="text/css">
+		/* *{
+			box-sizing: border-box;
+		} */
+		h1 {
+			background-color: blue;
+			color: #fff;
+			/* padding: 2%; */
+			text-align: center;
+			border-radius: 5px;
+		}
+		.danger {
+			color: red;
+		}
+		p {color: #fff; text-align: center;}
+		a{color: rgb(230, 221, 221);}
+		strong{color: #000;}
+		body, html{
+			font-family: "Arial, Heletica, san-serif";
+			font-size: 12px;
+			background: linear-gradient( red, blue) no-repeat;
+			margin: 0;
+			padding: 0;
+			min-height: 100vh;
+		}
+		.wrap {
+			width: 80%;
+			margin: 0 auto;
+		}
+		.container {
+			background-color: rgb(248, 248, 248);
+			padding: 10% 4%;
+			border-radius: 2px;
+			width: 80%;
+			margin: 2% auto 1%;
+		}
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+		}
+		li {
+			width: 44%;
+			display: inline-block;
+			margin: 1% auto;
+			padding: 2% 0;
+		}
+		li:last-child{
+			width: 100%;
+		}
+		input {
+			border: none;
+			border-bottom: 1px solid #000;
+			padding: 5%;
+			background-color: rgb(248, 248, 248);
+		}
+		button {
+			color: #fff;
+			border: none;
+			background: linear-gradient( red, blue);
+			width: 80%;
+			margin: 1% auto;
+			padding: 8%;
+			border-radius: 5%;
+			text-transform: uppercase;
+			/* font-size: 120%; */
+		} 
+		@media screen and (min-width: 600px) {
+			body {
+				font-size: 20px;
+			}
+		}
+	</style>
 </head>
 <body>
+	<div class="wrap">
+			<h1>Love Calculator</h1>
+		</div>
 	<div class="container">
-		<h1>Love Calculator</h1>
 
 		<p class="danger"><strong>Caution:</strong>This calculator is designed primarily for you to catch fun and should be treated at such. These results are not reliable.</p>
 
@@ -14,11 +94,11 @@
 		<form id="loveform">
 			<ul>
 				<li>
-					<input type="text" name="firstInput" class="firstInput" placeholder="First Peron">
+					<input type="text" name="firstInput" class="firstInput" placeholder="First Peron" required>
 					<span class="danger firstErr"></span>
 				</li>
 				<li>
-					<input type="text" name="secondInput" class="secondInput" placeholder="Second Person">
+					<input type="text" name="secondInput" class="secondInput" placeholder="Second Person" required>
 					<span class="danger secondErr"></span>
 				</li>
 				<li>
@@ -26,8 +106,9 @@
 				</li>
 			</ul>
 		</form>
-		Courtesy <a href="wwww.eloshines">ELOSHINES</a>.
+		
 	</div>
+	<p>Courtesy <a href="wwww.eloshines.com">ELOSHINES</a></p>
 
 	<script type="text/javascript">
 		const loveform = document.querySelector('#loveform');
@@ -40,16 +121,34 @@
 
 		
 
-		function random(){
-			let randomNumber = Math.random() * 150;
-			let randomValue = Math.floor(randomNumber) + 1;
-			return randomValue;
-		}
+		// function random(){
+		// 	let randomNumber = Math.random() * 100;
+		// 	let randomValue = Math.floor(randomNumber) + 1;
+		// 	return randomValue;
+		// }
 
 		loveform.addEventListener('submit', function(e){
 			e.preventDefault();
-						let test = `${firstInput} ${random()}  ${secondInput}`;
-			console.log(test)
+
+			function random(){
+				let randomNumber = Math.random() * 100;
+				let randomValue = Math.floor(randomNumber) + 1;
+				return randomValue;
+			}
+			console.log(random())
+			// let test = `${firstInput} ${random()}  ${secondInput}`;
+			let res = ''
+			if (random() === 100) {
+				// res = 'Please try again, 100% is achieveable';
+				// res.style.color = red;
+				test = "CONGRATULATION!!! It's 100 percent";
+			} else if (random() > 1 && random() < 50) {
+				test = 'It is average score. 100% is achieveable, please try again';
+			} else {
+				test = "Scored " + random() + '%. Try again until you get the desired score';
+				
+			}
+			console.log(random())
 			result.innerHTML = test;
 		})
 
